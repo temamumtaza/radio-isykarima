@@ -16,6 +16,35 @@ function App() {
     }
   }, []);
 
+  useEffect(() => {
+    if ('mediaSession' in navigator) {
+      navigator.mediaSession.metadata = new window.MediaMetadata({
+        title: 'Radio Isy Karima',
+        artist: 'Live Streaming',
+        album: 'Radio Isy Karima',
+        artwork: [
+          { src: '/logo192.png', sizes: '192x192', type: 'image/png' },
+          { src: '/logo512.png', sizes: '512x512', type: 'image/png' }
+        ]
+      });
+
+      navigator.mediaSession.setActionHandler('play', async () => {
+        try {
+          await audioRef.current.play();
+          setIsPlaying(true);
+        } catch (e) {}
+      });
+      navigator.mediaSession.setActionHandler('pause', () => {
+        audioRef.current.pause();
+        setIsPlaying(false);
+      });
+      navigator.mediaSession.setActionHandler('stop', () => {
+        audioRef.current.pause();
+        setIsPlaying(false);
+      });
+    }
+  }, [audioRef, setIsPlaying]);
+
   const handlePlayPause = async () => {
     if (!isPlaying) {
       try {
@@ -67,16 +96,29 @@ function App() {
         ref={videoRef}
         onEnded={() => { if (videoRef.current) videoRef.current.play(); }}
         onError={() => console.log('Video failed to load')}
+        onTimeUpdate={() => {
+          const v = videoRef.current;
+          if (v && v.duration - v.currentTime < 0.2) {
+            v.currentTime = 0;
+            v.play();
+          }
+        }}
+        onPause={() => {
+          const v = videoRef.current;
+          if (v && v.currentTime < v.duration - 0.2) {
+            v.play();
+          }
+        }}
       />
       <div className="bg-overlay" />
       <header className="spotify-header">
-        <img
-          src="/hero.png"
-          alt="Radio Isy Karima: Sahabat Anda Belajar Al-Quran"
-          className="hero-image"
-          width={395}
-          height={128}
-        />
+        <div className="hero-container">
+          <img
+            src="https://radioisykarima.com/wp-content/uploads/2023/11/Logo-Radio-IsyKarima-Putih-1536x497.png"
+            alt="Radio Isy Karima: Sahabat Anda Belajar Al-Quran"
+            className="hero-image"
+          />
+        </div>
       </header>
       <div className="main-spacer" />
       <main className="hero-blur hero-blur--lower">
