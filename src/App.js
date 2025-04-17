@@ -126,16 +126,18 @@ function App() {
           <div className="spotify-label">Live Streaming</div>
           <div className="player-controls">
             <button className="play-btn" onClick={handlePlayPause} aria-label={isPlaying ? 'Stop' : 'Play'}>
-              {isPlaying ? (
-                <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <rect x="7" y="7" width="6" height="18" rx="2" fill="white"/>
-                  <rect x="19" y="7" width="6" height="18" rx="2" fill="white"/>
-                </svg>
-              ) : (
-                <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M8 6V26L26 16L8 6Z" fill="white"/>
-                </svg>
-              )}
+              <div className="play-icon-container">
+                {isPlaying ? (
+                  <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+                    <rect x="10" y="8" width="4" height="16" rx="2" fill="white"/>
+                    <rect x="18" y="8" width="4" height="16" rx="2" fill="white"/>
+                  </svg>
+                ) : (
+                  <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+                    <path d="M12 8L24 16L12 24V8Z" fill="white"/>
+                  </svg>
+                )}
+              </div>
             </button>
             <div className="volume-row">
               <button className="mute-btn" onClick={handleMuteToggle} aria-label={isMuted ? 'Unmute' : 'Mute'}>

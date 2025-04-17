@@ -137,8 +137,10 @@ body {
   color: #fff;
   border: none;
   border-radius: 50%;
-  width: 64px;
-  height: 64px;
+  width: 64px !important;
+  height: 64px !important;
+  min-width: 48px;
+  min-height: 48px;
   font-size: 2rem;
   font-weight: 700;
   cursor: pointer;
@@ -150,6 +152,16 @@ body {
 .play-btn:hover {
   background: #01a759;
   transform: scale(1.08);
+}
+
+.play-icon-container {
+  min-width: 51px;
+  min-height: 51px;
+  width: 80%;
+  height: 80%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .play-btn svg {

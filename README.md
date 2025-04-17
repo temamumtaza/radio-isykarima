@@ -42,5 +42,14 @@ Aplikasi web streaming radio Isy Karima, dibuat dengan React dan Progressive Web
 ## 🖼️ Credit Background
 - [Unsplash - snow covered mountain during nighttime](https://unsplash.com/photos/snow-covered-mountain-during-nighttime-ddLiNMqWAOM)
 
+## Fitur
+- PWA (Progressive Web App) siap install
+- Orientasi portrait-only (tidak bisa rotate ke landscape di PWA)
+- Live demo: https://temamumtaza.github.io/radio-isykarima
+- UI modern, responsif, dan seamless
+
+## Release
+- Stable 1.0.2: Perbaikan ikon play/pause, orientasi portrait-only, dan update live demo
+
 ## Lisensi
 MIT 
