@@ -1,0 +1,14 @@
+{
+  "files": {
+    "main.css": "/radio-isykarima/static/css/main.2fab5e0b.css",
+    "main.js": "/radio-isykarima/static/js/main.c84714a6.js",
+    "service-worker.js": "/radio-isykarima/service-worker.js",
+    "index.html": "/radio-isykarima/index.html",
+    "main.2fab5e0b.css.map": "/radio-isykarima/static/css/main.2fab5e0b.css.map",
+    "main.c84714a6.js.map": "/radio-isykarima/static/js/main.c84714a6.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.2fab5e0b.css",
+    "static/js/main.c84714a6.js"
+  ]
+}
