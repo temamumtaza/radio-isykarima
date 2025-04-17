@@ -5,7 +5,6 @@ Aplikasi web streaming radio Isy Karima, dibuat dengan React dan Progressive Web
 ![Preview](public/logo192.png)
 
 ## 🎧 Fitur Utama
-- Streaming radio Isy Karima: [https://ssg.streamingmurah.com:8406/stream.mp3](https://ssg.streamingmurah.com:8406/stream.mp3)
 - Play/Stop radio
 - Pengatur volume (dengan tombol mute/unmute)
 - UI mobile modern, background blur, dan hero di tengah
