@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import React, { useRef, useState, useEffect } from 'react';
 import './App.css';
 
 const RADIO_URL = 'https://ssg.streamingmurah.com:8406/stream.mp3';
@@ -8,11 +8,22 @@ function App() {
   const [isPlaying, setIsPlaying] = useState(false);
   const [volume, setVolume] = useState(1);
   const [isMuted, setIsMuted] = useState(false);
+  const videoRef = useRef(null);
 
-  const handlePlayPause = () => {
+  useEffect(() => {
+    if (videoRef.current) {
+      videoRef.current.playbackRate = 0.8;
+    }
+  }, []);
+
+  const handlePlayPause = async () => {
     if (!isPlaying) {
-      audioRef.current.play();
-      setIsPlaying(true);
+      try {
+        await audioRef.current.play();
+        setIsPlaying(true);
+      } catch (err) {
+        console.log('Audio play failed:', err);
+      }
     } else {
       audioRef.current.pause();
       setIsPlaying(false);
@@ -46,10 +57,29 @@ function App() {
 
   return (
     <div className="radio-bg">
+      <video
+        className="bg-video"
+        src="https://videos.pexels.com/video-files/5647336/5647336-uhd_2560_1440_25fps.mp4"
+        autoPlay
+        loop
+        muted
+        playsInline
+        ref={videoRef}
+        onEnded={() => { if (videoRef.current) videoRef.current.play(); }}
+        onError={() => console.log('Video failed to load')}
+      />
+      <div className="bg-overlay" />
       <header className="spotify-header">
-        <h1 className="radio-title">Radio Isy Karima</h1>
+        <img
+          src="/hero.png"
+          alt="Radio Isy Karima: Sahabat Anda Belajar Al-Quran"
+          className="hero-image"
+          width={395}
+          height={128}
+        />
       </header>
-      <main className="hero-blur">
+      <div className="main-spacer" />
+      <main className="hero-blur hero-blur--lower">
         <div className="spotify-player-card">
           <div className="spotify-label">Live Streaming</div>
           <div className="player-controls">
@@ -91,7 +121,7 @@ function App() {
               />
             </div>
           </div>
-          <audio ref={audioRef} src={RADIO_URL} preload="none" />
+          <audio ref={audioRef} src={RADIO_URL} preload="none" onError={() => console.log('Audio failed to load')} />
         </div>
       </main>
     </div>
