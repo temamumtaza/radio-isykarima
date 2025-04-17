@@ -1,10 +1,13 @@
 # Radio Isy Karima
 
+[![Live Demo](https://img.shields.io/badge/Live%20Demo-Online-green?style=for-the-badge&logo=github)](https://temamumtaza.github.io/radio-isykarima)
+
 Aplikasi web streaming radio Isy Karima, dibuat dengan React dan Progressive Web App (PWA) support. Didesain untuk pengalaman mobile modern, bisa di-install di home screen iOS/Android, dan hanya fokus pada streaming radio dengan UI minimalis dan estetik.
 
 ![Preview](public/logo192.png)
 
 ## 🎧 Fitur Utama
+- Streaming radio Isy Karima: [https://ssg.streamingmurah.com:8406/stream.mp3](https://ssg.streamingmurah.com:8406/stream.mp3)
 - Play/Stop radio
 - Pengatur volume (dengan tombol mute/unmute)
 - UI mobile modern, background blur, dan hero di tengah
@@ -27,7 +30,8 @@ Aplikasi web streaming radio Isy Karima, dibuat dengan React dan Progressive Web
    npm start
    ```
 4. **Akses di browser**
-   - Buka [http://localhost:3000](http://localhost:3000)
+   - Buka [http://localhost:3000](http://localhost:3000) untuk development
+   - Atau akses versi live: [https://temamumtaza.github.io/radio-isykarima](https://temamumtaza.github.io/radio-isykarima)
    - Untuk install di home screen: buka di browser mobile, lalu pilih "Add to Home Screen"
 
 ## 📱 PWA Support
