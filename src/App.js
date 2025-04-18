@@ -12,7 +12,7 @@ function App() {
 
   useEffect(() => {
     if (videoRef.current) {
-      videoRef.current.playbackRate = 0.8;
+      videoRef.current.playbackRate = 0.6;
     }
   }, []);
 
